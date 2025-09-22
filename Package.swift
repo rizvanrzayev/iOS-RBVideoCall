@@ -5,15 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "ArkVideoCall",
-    platforms: [.iOS(.v11)],
+    platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "ArkVideoCall",
-            targets: ["ArkVideoCall", "JitsiMeetSDK", "WebRTC", "hermes"]),
+            targets: ["ArkVideoCall"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Giphy/giphy-ios-sdk", exact: "2.2.16")
+        .package(url: "https://github.com/jitsi/jitsi-meet-ios-sdk-releases.git", exact: "11.5.1")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -23,14 +23,14 @@ let package = Package(
         .target(
             name: "ArkVideoCall",
             dependencies: [
-                .product(name: "GiphyUISDK", package: "giphy-ios-sdk")
+                .product(name: "JitsiMeetSDK", package: "jitsi-meet-ios-sdk-releases")
             ]),
         .testTarget(
             name: "ArkVideoCallTests",
             dependencies: ["ArkVideoCall"]),
-        .binaryTarget(name: "JitsiMeetSDK", path: "artifacts/JitsiMeetSDK.xcframework"),
-        .binaryTarget(name: "WebRTC", path: "artifacts/WebRTC.xcframework"),
+//        .binaryTarget(name: "JitsiMeetSDK", path: "artifacts/JitsiMeetSDK.xcframework"),
+//        .binaryTarget(name: "WebRTC", path: "artifacts/WebRTC.xcframework"),
         // .binaryTarget(name: "GiphyUISDK", path: "artifacts/GiphyUISDK.xcframework"),
-        .binaryTarget(name: "hermes", path: "artifacts/hermes.xcframework"),
+//        .binaryTarget(name: "hermes", path: "artifacts/hermes.xcframework"),
     ]
 )
