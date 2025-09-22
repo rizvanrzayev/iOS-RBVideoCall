@@ -14,12 +14,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/jitsi/jitsi-meet-ios-sdk-releases.git", exact: "11.5.1")
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "ArkVideoCall",
             dependencies: [
@@ -28,9 +24,5 @@ let package = Package(
         .testTarget(
             name: "ArkVideoCallTests",
             dependencies: ["ArkVideoCall"]),
-//        .binaryTarget(name: "JitsiMeetSDK", path: "artifacts/JitsiMeetSDK.xcframework"),
-//        .binaryTarget(name: "WebRTC", path: "artifacts/WebRTC.xcframework"),
-        // .binaryTarget(name: "GiphyUISDK", path: "artifacts/GiphyUISDK.xcframework"),
-//        .binaryTarget(name: "hermes", path: "artifacts/hermes.xcframework"),
     ]
 )
